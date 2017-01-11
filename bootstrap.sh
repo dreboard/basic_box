@@ -66,21 +66,23 @@ mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'loc
 ##########################################################
 #				Apache Vhosts
 ##########################################################
+
 # create project folder
 sudo chmod -R 755 /var/www
 sudo mkdir "/var/www/$PROJECTNAME"
+sudo mkdir "/var/www/$PROJECTNAME/log"
 
 # setup hosts file
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
     ServerName $PROJECTNAME.dev
     DocumentRoot /var/www/$PROJECTNAME
-    ErrorLog /var/www/$PROJECTNAME/apache.error.log
-    CustomLog /var/www/$PROJECTNAME/apache.access.log common
+    ErrorLog /var/www/$PROJECTNAME/log/apache.error.log
+    CustomLog /var/www/$PROJECTNAME/log/apache.access.log common
     php_flag log_errors on
     php_flag display_errors on
     php_value error_reporting 2147483647
-    php_value error_log /var/www/$PROJECTNAME/php.error.log
+    php_value error_log /var/www/$PROJECTNAME/log/php.error.log
    <Directory "/var/www/$PROJECTNAME">
         AllowOverride All
         Require all granted
@@ -112,5 +114,6 @@ sudo apt-get install snmp
 sudo apt-get -y install libapache2-mod-php7.0
 sudo a2dismod php5
 sudo a2enmod php7.0
+sudo apt-get autoremove
 
 service apache2 restart
