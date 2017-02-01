@@ -8,6 +8,7 @@ config.ssh.insert_key = false
   config.vm.box = "centos_6.5_x64"
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box"
   config.vbguest.auto_update = false
+  config.vm.host_name = "mycentos.local"
   config.vm.network "forwarded_port", guest: 80, host: 8888, auto_correct: true
   
   config.vm.provider "virtualbox" do |vb|
@@ -19,10 +20,11 @@ config.ssh.insert_key = false
   end
 
   # Environment setup
-  config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision :shell, path: "php_mods.sh"
-  config.vm.provision :shell, path: "sql.sh"
-  config.vm.provision :shell, path: "dev_tools.sh"
-  config.vm.provision :shell, path: "complete.sh"
+  ## vagrant provision --provision-with sql
+  config.vm.provision "bootstrap", type: "shell", path: "./server_conf/bootstrap.sh"
+  config.vm.provision "php_mods", type: "shell", path: "./server_conf/php_mods.sh"
+  config.vm.provision "sql", type: "shell", path: "./server_conf/sql.sh"
+  config.vm.provision "dev_tools", type: "shell", path: "./server_conf/dev_tools.sh"
+  config.vm.provision "complete", type: "shell", path: "./server_conf/complete.sh"
 
 end

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+	echo "================= START INSTALL-php_mods.SH $(date +"%r") ================="
+	echo " "
+	
 	# Get and update reop
 	sudo rpm -Uvh http://repo.webtatic.com/yum/el6/latest.rpm
 	sudo yum -y update
@@ -19,3 +22,6 @@
 	## No need for .htaccess overrides
 	## Change all setting here
 	sudo cp /vagrant/server_conf/php.ini /etc/php.ini
+	
+	echo ""
+	echo "================= End INSTALL-php_mods.SH $(date +"%r") ================="
