@@ -1,0 +1,10 @@
+language: php
+php:
+  - 7.0
+script: phpunit test.php
+
+branches:
+  only:
+    - ubuntu
+    - centos
+    - master
