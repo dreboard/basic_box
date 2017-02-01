@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-	# update the base server and install LAMP
+
+	# Get and update reop
 	sudo rpm -Uvh http://repo.webtatic.com/yum/el6/latest.rpm
 	sudo yum -y update
 
-	# Install php and modules
-	# Package list
-	# https://webtatic.com/packages/php70/
+	# Install php and modules (Source https://webtatic.com/packages/php70/ )
 	sudo yum -y install php70w php70w-common php70w-mysql php70w-pdo php70w-opcache php70w-mcrypt php70w-xml php70w-devel php70w-pear php70w-mcrypt php70w-gd
     sudo yum -y install php70w-pecl-imagick
 	sudo yum -y install httpd mod_ssl chkconfig memcached zlib zlib-devel gcc php-phpseclib-crypt-base php-phpseclib-crypt-rsa
@@ -16,23 +15,7 @@
 	sudo yum -y install php70w-phpdbg.x86_64
 	sudo yum -y install php70w-cli.x86_64
 
-
-	sudo service httpd start
-
-	################memcache/d stuff begin
-
-	sudo yum groupinstall "Development tools"
-
-	# Restart any PHP related daemons
-	sudo service httpd restart
-
-	################memcache/d stuff end
-
-	#disable the firewall
-	sudo service iptables stop
-	sudo chkconfig iptables off
-
-	###############composer
-    curl -sS https://getcomposer.org/installer | php
-    #Move it to /usr/local/bin/
-    sudo mv composer.phar /usr/local/bin/composer
+	# Dev environment php.ini
+	## No need for .htaccess overrides
+	## Change all setting here
+	sudo cp /vagrant/server_conf/php.ini /etc/php.ini
