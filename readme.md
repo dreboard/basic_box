@@ -1,4 +1,4 @@
-# Basic Vagrant Box Setup
+# Basic Vagrant Box Setup [![Build Status](https://travis-ci.org/dreboard/basic_box.svg?branch=master)](https://travis-ci.org/dreboard/basic_box)
 
 Basic vagrant boxes in Ubuntu and Centos:
 
