@@ -2,9 +2,9 @@
 
 Basic vagrant boxes in Ubuntu and Centos:
 
-- ubuntu/trusty64
+- ubuntu/xenial64
 - [Apache]
-- PHP[7]
+- PHP[7.1]
 - Phpmyadmin
 - Composer
 
@@ -13,8 +13,9 @@ Basic vagrant boxes in Ubuntu and Centos:
 - [Vagrant](http://www.vagrantup.com/downloads)
 
 ## PHP Modules
-php7.0-fpm php7.0-common php7.0-opcache php7.0-phpdbg php7.0-mbstring php7.0-gd php7.0-imap php7.0-ldap php7.0-pgsql php7.0-pspell php7.0-recode php7.0-snmp php7.0-tidy php7.0-dev php7.0-intl php7.0-gd php7.0-curl php7.0-zip php7.0-xml php7.0-curl php7.0-json php7.0-mcrypt
 
+php7.1 php7.1-opcache php7.1-phpdbg php7.1-mbstring php7.1-cli php7.1-imap php7.1-ldap php7.1-pgsql php7.1-pspell php7.1-recode php7.1-snmp php7.1-tidy php7.1-dev php7.1-intl php7.1-gd php7.1-zip php7.1-xml php7.1-curl php7.1-json php7.1-mcrypt
+php7.1-intl php7.1-xsl php7.1-mysql
 
 ### Laravel users (Ubuntu)
 If you are having issues with migrating follow the steps below
